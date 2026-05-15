@@ -7,7 +7,8 @@ import java.io.File
 class ReversyShTest {
     @Test
     fun testReversyScript() {
-        val cDir = File("/app/reversy_git/c")
+        val projectDir = File(System.getProperty("user.dir"))
+        val cDir = File(projectDir, "c")
         val build = ProcessBuilder("make", "-C", cDir.absolutePath)
             .redirectErrorStream(true).start()
         assertEquals(0, build.waitFor(), "make should succeed")
