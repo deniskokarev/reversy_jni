@@ -93,7 +93,7 @@ JNIEXPORT jobject JNICALL Java_com_github_deniskokarev_reversy_NativeLib_nativeF
 
     GAME_TURN best;
     GAME_SCORE score = find_best_turn(&best, &s, (CHIP_COLOR)color, (int)depth);
-    if (score == GAME_SCORE_MIN) return NULL;
+    if (score == (GAME_SCORE)GAME_SCORE_MIN) return NULL;
 
     jclass tc = (*env)->FindClass(env, "com/github/deniskokarev/reversy/Turn");
     jmethodID ctor = (*env)->GetMethodID(env, tc, "<init>", "(IIB)V");
